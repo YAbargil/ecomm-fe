@@ -2,14 +2,12 @@ import { useContext, useEffect, useReducer } from "react";
 import React, { createContext } from "react";
 import reducer from "../reducers/filterReducer";
 import {
-  SET_FILTERED,
   SET_PRODUCTS,
-  PRICE_ASCENDING,
-  PRICE_DESCENDING,
-  NAME_ASCENDING,
-  NAME_DESCENDING,
   SORT_PRODUCTS,
   UPDATE_SORT,
+  UPDATE_FILTER,
+  FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from "../utils/constants/constants";
 import { useProductsContext } from "./productContext";
 
@@ -17,6 +15,15 @@ const initialState = {
   products: [],
   filtered_products: [],
   sort: "",
+  filtered_products_loading: false,
+  brands: [],
+  filters: {
+    search: "",
+    brand: [],
+    max_price: 0,
+    min_price: 0,
+    price: 0,
+  },
 };
 const FilterContext = createContext(initialState);
 
@@ -31,34 +38,39 @@ export const FilterProvider = ({ children }) => {
   const updateSort = (e) => {
     const value = e.target.value;
     dispatch({ type: UPDATE_SORT, payload: value });
-
-    // let d = document.getElementById("sort").value;
-    // console.log(d);
-    // let event.
-    // dispatch({ type: sortType });
-    // switch (sortType) {
-    //   case PRICE_ASCENDING:
-    //   case PRICE_DESCENDING:
-    //   case NAME_ASCENDING:
-    //   case NAME_DESCENDING:
-    //   default:
-    //     throw new Error(`No Matching "${sortType}" - sort type`);
-    // }
   };
+
+  const updateFilter = (e) => {
+    if (typeof e === "string") {
+      dispatch({ type: UPDATE_FILTER, payload: { value: e, name: "brand" } });
+      return;
+    }
+    let value = e.target ? e.target.value : e;
+    const name = e.target.name;
+    dispatch({ type: UPDATE_FILTER, payload: { value, name } });
+  };
+
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
+
   useEffect(
     () => dispatch({ type: SET_PRODUCTS, payload: products }),
     [products]
   );
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
-  }, [state.sort]);
+  }, [state.sort, state.filters]);
 
   return (
     <FilterContext.Provider
       value={{
         ...state,
         updateSort,
+        updateFilter,
+        clearFilters,
       }}
     >
       {children}

@@ -23,12 +23,14 @@ export const Sort = () => {
       <Flex direction="row" justify={"center"} align="flex-end">
         <p>{products.length} Product Found</p>
         <form>
-          <label htmlFor="sort">Sort By</label>
           <select name="sort" id="sort" value={sort} onChange={updateSort}>
+            <option value="" disabled hidden>
+              Sort By
+            </option>
             <option value={PRICE_ASCENDING}>Price (Lowest)</option>
             <option value={PRICE_DESCENDING}>Price (Highest)</option>
-            <option value={NAME_ASCENDING}>Name (A - Z)</option>
-            <option value={NAME_DESCENDING}>Name (Z - A)</option>
+            <option value={NAME_ASCENDING}>Name (A-Z)</option>
+            <option value={NAME_DESCENDING}>Name (Z-A)</option>
           </select>
         </form>
       </Flex>

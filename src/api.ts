@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const client = axios.create({ baseURL: "http://localhost:3001/api" });
+const client = axios.create({
+  baseURL: "https://api-myshopy.onrender.com/api",
+});
 
 export function setLocalStorage(token) {
   localStorage.setItem("accessToken", `Bearer ${token}`);
