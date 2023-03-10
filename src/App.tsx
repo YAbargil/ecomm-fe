@@ -6,6 +6,7 @@ import { SingleProductPage } from "./pages/SingleProductPage";
 import { LogInPage } from "./pages/LogInPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { AuthRoutes } from "./utils/formats";
+import { SignUpPage } from "./pages/SignUpPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<LogInPage />}></Route>
         </Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
+        <Route path="/signup" element={<SignUpPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

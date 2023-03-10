@@ -7,7 +7,7 @@ import {
   SET_USER_FROM_LOCAL_STORAGE,
   SET_USER_LOADING,
 } from "../utils/constants/constants";
-import { logIn } from "../api";
+import { logIn, signUp } from "../api";
 
 const initialState = {
   loading: false,
@@ -43,11 +43,27 @@ export const UserProvider = ({ children }) => {
       });
     }
   };
+
+  const signUpHandler = async (values) => {
+    try {
+      dispatch({ type: SET_USER_LOADING, payload: values });
+      const result = await signUp(values);
+      dispatch({ type: SET_USER, payload: result.data });
+    } catch (err) {
+      dispatch({
+        type: SET_USER_ERROR,
+        payload: err.response.data.msg,
+      });
+      console.log(err);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
         ...state,
         logUser,
+        signUpHandler,
       }}
     >
       {children}
