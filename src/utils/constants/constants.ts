@@ -20,3 +20,10 @@ export const UPDATE_SORT = "UPDATE_SORT";
 export const UPDATE_FILTER = "UPDATE_FILTER";
 export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
 export const CLEAR_FILTERS = "CLEAR_FILTERS";
+
+//user
+
+export const SET_USER_LOADING = "SET_USER_LOADING";
+export const SET_USER_ERROR = "SET_USER_ERROR";
+export const SET_USER = "SET_USER";
+export const SET_USER_FROM_LOCAL_STORAGE = "SET_USER_FROM_LOCAL_STORAGE";

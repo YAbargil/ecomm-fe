@@ -41,7 +41,6 @@ export const ProductProvider = ({ children }) => {
       dispatch({ type: SET_SINGLE_PRODUCT, payload: product });
     } catch (error) {
       dispatch({ type: SET_SINGLE_PRODUCT_ERROR });
-      console.log(error);
     }
   };
 
@@ -55,7 +54,6 @@ export const ProductProvider = ({ children }) => {
       dispatch({ type: SET_PRODUCTS, payload: products });
     } catch (error) {
       dispatch({ type: SET_PRODUCTS_ERROR });
-      console.log(error);
     }
   };
 

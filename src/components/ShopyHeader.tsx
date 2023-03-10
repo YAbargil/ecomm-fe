@@ -1,8 +1,14 @@
 import { Button, Flex, Header, Text, Image, HoverCard } from "@mantine/core";
 import { IconShoppingCart, IconUserCircle } from "@tabler/icons-react";
 import { ActionIcon } from "@mantine/core";
+import { useUserContext } from "../context/userContext";
+import { useEffect } from "react";
 
 export const ShopyHeader = () => {
+  const { isAuth, user } = useUserContext();
+
+  useEffect(() => {}, [isAuth]);
+
   return (
     <Header
       height={62}
@@ -24,17 +30,25 @@ export const ShopyHeader = () => {
           ></Image>
         </Button>
         <Flex justify={"space-between"} gap="xl" align={"center"} mt={20}>
-          <ActionIcon
-            sx={{
-              "&[data-disabled]": { opacity: 0.1 },
-              "&[data-loading]": { backgroundColor: "red" },
-            }}
-            component="button"
-          >
-            <HoverCard>
-              <Text>Profile</Text>
-            </HoverCard>
-          </ActionIcon>
+          {user ? (
+            <Button component="a" href="/profile" variant="default" size="xs">
+              <Flex align={"center"} gap={3}>
+                <p
+                  style={{
+                    font: "inherit",
+                    fontWeight: "lighter",
+                    fontSize: 13,
+                    color: "MenuText",
+                  }}
+                >
+                  Profile
+                </p>
+                <IconUserCircle stroke={1.3} />
+              </Flex>
+            </Button>
+          ) : (
+            <Button component="a" href="/login" variant="default"></Button>
+          )}
           <Flex gap={2}>
             <ActionIcon component="a" href="/cart">
               <IconShoppingCart

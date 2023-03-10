@@ -4,8 +4,9 @@ const client = axios.create({
   baseURL: "https://api-myshopy.onrender.com/api",
 });
 
-export function setLocalStorage(token) {
+export function setLocalStorage(token, user) {
   localStorage.setItem("accessToken", `Bearer ${token}`);
+  localStorage.setItem("user", JSON.stringify(user));
 }
 
 export function setTokenDefaultHeader() {
@@ -82,4 +83,8 @@ export function updateOrderItem(
 export function isAuth() {
   setTokenDefaultHeader();
   return client.get("/users/isauth");
+}
+
+export function clearToken() {
+  localStorage.removeItem("accessToken");
 }
