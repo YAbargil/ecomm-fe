@@ -2,12 +2,11 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProductsContext } from "../context/productContext";
 import { Title, Flex, Text, Center, Divider } from "@mantine/core";
-import { IconCheck, IconTruckDelivery } from "@tabler/icons-react";
 import { Loading } from "../components/Loading";
-import { formatPrice } from "../utils/formats";
 import { AddProductToCart } from "../components/AddProductToCart";
 import { SingleProductContent } from "../components/SingleProductContent";
 import { SingleProductImages } from "../components/SingleProductImages";
+import { SingleProductReview } from "../components/SingleProductReview";
 
 export const SingleProductPage = () => {
   const navgiate = useNavigate();
@@ -47,7 +46,7 @@ export const SingleProductPage = () => {
   return (
     <>
       <Flex direction={"column"}>
-        <Flex direction="row" align={"center"} justify="space-around">
+        <Flex direction="row" align={"flex-start"} justify="space-around">
           <Flex
             justify={"center"}
             align={"center"}
@@ -66,6 +65,7 @@ export const SingleProductPage = () => {
           <SingleProductImages images={single_product.images} />
         </Flex>
         <Divider variant="dashed" mt={"lg"}></Divider>
+        <SingleProductReview product={single_product} />
       </Flex>
     </>
   );

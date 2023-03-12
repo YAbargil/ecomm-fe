@@ -1,5 +1,6 @@
 import { Divider, Flex, Image } from "@mantine/core";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const SingleProductImages = ({ images }) => {
   const [imageClicked, setImageClicked] = useState(false);
@@ -27,47 +28,49 @@ export const SingleProductImages = ({ images }) => {
 
   return (
     <>
-      <Flex direction={"column"} align="center">
-        {imageClicked ? (
-          <Image
-            fit="fill"
-            height={800}
-            width={800}
-            src={firstImage}
-            key={firstImage._id}
-            onClick={() => setImageClicked(!imageClicked)}
-            sx={{ cursor: "zoom-out" }}
-          />
-        ) : (
-          <Image
-            fit="fill"
-            height={500}
-            width={500}
-            src={firstImage}
-            onClick={() => {
-              setImageClicked(!imageClicked);
-            }}
-            sx={{ cursor: "zoom-in" }}
-          />
-        )}
-        <Divider size={"xl"} m="xs"></Divider>
-        <Flex align="flex-end" gap={2}>
-          {restImages?.map((image, index: number) => (
-            <>
-              <Image
-                fit="fill"
-                height={200}
-                width={200}
-                src={image}
-                key={image._id}
-                radius="sm"
-                sx={{ cursor: "pointer" }}
-                onClick={() => handleImageClick(index)}
-              />
-            </>
-          ))}
+      {restImages && restImages?.length > 0 && (
+        <Flex direction={"column"} align="center">
+          {imageClicked ? (
+            <Image
+              fit="contain"
+              height={650}
+              width={650}
+              src={firstImage}
+              key={firstImage._id}
+              onClick={() => setImageClicked(!imageClicked)}
+              sx={{ cursor: "zoom-out" }}
+            />
+          ) : (
+            <Image
+              fit="fill"
+              height={400}
+              width={400}
+              src={firstImage}
+              onClick={() => {
+                setImageClicked(!imageClicked);
+              }}
+              sx={{ cursor: "zoom-in" }}
+            />
+          )}
+          <Divider size={"xl"} m="xs"></Divider>
+          <Flex align="flex-end" gap={2}>
+            {restImages?.map((image, index: number) => (
+              <>
+                <Image
+                  key={images._id}
+                  fit="initial"
+                  height={200}
+                  width={200}
+                  src={image}
+                  radius="sm"
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => handleImageClick(index)}
+                />
+              </>
+            ))}
+          </Flex>
         </Flex>
-      </Flex>
+      )}
     </>
   );
 };
