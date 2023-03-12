@@ -27,3 +27,11 @@ export const AuthRoutes = () => {
     <Outlet />
   );
 };
+
+export const ProtectedRoutes = () => {
+  return localStorage.getItem("accessToken") ? (
+    <Outlet />
+  ) : (
+    <Navigate to={"/"} />
+  );
+};

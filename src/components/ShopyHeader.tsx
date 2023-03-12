@@ -68,7 +68,7 @@ export const ShopyHeader = () => {
                 style={{
                   font: "inherit",
                   fontWeight: "lighter",
-                  fontSize: 13,
+                  fontSize: 15,
                   color: "white",
                 }}
               >
@@ -81,7 +81,8 @@ export const ShopyHeader = () => {
               component="a"
               href="/cart"
               style={{
-                backgroundColor: "transparent",
+                backgroundColor: "",
+                width: "33px",
               }}
             >
               <IconShoppingCart

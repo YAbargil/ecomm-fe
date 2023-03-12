@@ -5,8 +5,9 @@ import { ProductsPage } from "./pages/ProductsPage";
 import { SingleProductPage } from "./pages/SingleProductPage";
 import { LogInPage } from "./pages/LogInPage";
 import { ProfilePage } from "./pages/ProfilePage";
-import { AuthRoutes } from "./utils/formats";
+import { AuthRoutes, ProtectedRoutes } from "./utils/formats";
 import { SignUpPage } from "./pages/SignUpPage";
+import { CartPage } from "./pages/CartPage";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <Route path="/signup" element={<SignUpPage />}></Route>
         </Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/cart" element={<CartPage />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
