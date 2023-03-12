@@ -14,7 +14,6 @@ const userReducer = (state, action) => {
     case SET_USER:
       const { token, user } = action.payload;
       setLocalStorage(token, user);
-      console.log(user);
       return { ...state, token, user, loading: false, isAuth: true };
 
     case SET_USER_ERROR:

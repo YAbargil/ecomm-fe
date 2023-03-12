@@ -18,8 +18,10 @@ function App() {
         <Route element={<AuthRoutes />}>
           <Route path="/login" element={<LogInPage />}></Route>
         </Route>
+        <Route element={<AuthRoutes />}>
+          <Route path="/signup" element={<SignUpPage />}></Route>
+        </Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
-        <Route path="/signup" element={<SignUpPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

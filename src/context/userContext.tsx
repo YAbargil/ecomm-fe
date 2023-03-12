@@ -26,7 +26,6 @@ export const UserProvider = ({ children }) => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const user = JSON.parse(storedUser);
-      console.log("user", user);
       dispatch({ type: SET_USER_FROM_LOCAL_STORAGE, payload: user });
     }
   }, [state.isAuth]);
