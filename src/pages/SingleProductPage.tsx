@@ -1,7 +1,15 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProductsContext } from "../context/productContext";
-import { Title, Flex, Text, Center, Divider, Group } from "@mantine/core";
+import {
+  Title,
+  Flex,
+  Text,
+  Center,
+  Divider,
+  Group,
+  Button,
+} from "@mantine/core";
 import { Loading } from "../components/Loading";
 import { AddProductToCart } from "../components/AddProductToCart";
 import { SingleProductContent } from "../components/SingleProductContent";
@@ -61,7 +69,19 @@ export const SingleProductPage = () => {
             <SingleProductContent single_product={single_product} />
             <Divider></Divider>
             <Group position="center">
-              <AddProductToCart single_product={single_product} />
+              {single_product.stock > 0 ? (
+                <AddProductToCart single_product={single_product} />
+              ) : (
+                <Button
+                  style={{ width: 400 }}
+                  radius="md"
+                  size="lg"
+                  disabled
+                  mt={50}
+                >
+                  Out Of Stock
+                </Button>
+              )}
             </Group>
           </Flex>
           <SingleProductImages images={single_product.images} />

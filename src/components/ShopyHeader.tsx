@@ -92,7 +92,7 @@ export const ShopyHeader = () => {
                 size={50}
               />
             </ActionIcon>
-            {cart_items_count > 0 && (
+            {isAuth && cart_items_count > 0 && (
               <span
                 style={{
                   backgroundColor: "red",

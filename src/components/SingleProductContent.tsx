@@ -1,5 +1,5 @@
 import { Title, Flex, Text, Center } from "@mantine/core";
-import { IconCheck, IconTruckDelivery } from "@tabler/icons-react";
+import { IconCheck, IconTruckDelivery, IconX } from "@tabler/icons-react";
 import { formatPrice } from "../utils/formats";
 
 export const SingleProductContent = ({ single_product }) => {
@@ -14,10 +14,21 @@ export const SingleProductContent = ({ single_product }) => {
       </Text>
       <Text color={"dimmed"}>{single_product.description}</Text>
       <Flex direction="row" gap="sm">
-        <IconCheck color="green" stroke={2.2} height={29} />
-        <Text fz={18} fw={550}>
-          Stock - {single_product.stock}
-        </Text>
+        {single_product.stock > 0 ? (
+          <>
+            <IconCheck color="green" stroke={2.2} height={29} />
+            <Text fz={18} fw={550}>
+              Stock - {single_product.stock}
+            </Text>
+          </>
+        ) : (
+          <>
+            <IconX color="red" />
+            <Text fz={18} fw={550}>
+              Currently out of stock
+            </Text>
+          </>
+        )}
       </Flex>
       <Flex direction="row" gap="sm">
         <Text fz={30} weight={670}>

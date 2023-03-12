@@ -1,5 +1,6 @@
 import { clearToken, setLocalStorage } from "../api";
 import {
+  SET_DEFAULT,
   SET_USER,
   SET_USER_ERROR,
   SET_USER_FROM_LOCAL_STORAGE,
@@ -22,6 +23,16 @@ const userReducer = (state, action) => {
         loading: false,
         user_error: true,
         message: action.payload,
+        isAuth: false,
+      };
+
+    case SET_DEFAULT:
+      return {
+        loading: false,
+        user: {},
+        user_error: false,
+        message: "",
+        token: "",
         isAuth: false,
       };
 

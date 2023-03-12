@@ -85,6 +85,11 @@ export function isAuth() {
   return client.get("/users/isauth");
 }
 
+export function clearLocalStorage() {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("user");
+}
+
 export function clearToken() {
   localStorage.removeItem("accessToken");
 }

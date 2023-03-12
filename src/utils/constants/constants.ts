@@ -27,6 +27,7 @@ export const SET_USER_LOADING = "SET_USER_LOADING";
 export const SET_USER_ERROR = "SET_USER_ERROR";
 export const SET_USER = "SET_USER";
 export const SET_USER_FROM_LOCAL_STORAGE = "SET_USER_FROM_LOCAL_STORAGE";
+export const SET_DEFAULT = "SET_DEFAULT";
 
 //cart items
 export const ADD_TO_CART_LOADING = "ADD_TO_CART_LOADING";

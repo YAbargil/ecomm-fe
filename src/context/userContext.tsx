@@ -2,12 +2,13 @@ import { useContext, useEffect, useReducer } from "react";
 import React, { createContext } from "react";
 import reducer from "../reducers/userReducer";
 import {
+  SET_DEFAULT,
   SET_USER,
   SET_USER_ERROR,
   SET_USER_FROM_LOCAL_STORAGE,
   SET_USER_LOADING,
 } from "../utils/constants/constants";
-import { logIn, signUp } from "../api";
+import { clearLocalStorage, clearToken, logIn, signUp } from "../api";
 
 const initialState = {
   loading: false,
@@ -57,11 +58,17 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const logout = async () => {
+    dispatch({ type: SET_USER_LOADING });
+    clearLocalStorage();
+    dispatch({ type: SET_DEFAULT });
+  };
   return (
     <UserContext.Provider
       value={{
         ...state,
         logUser,
+        logout,
         signUpHandler,
       }}
     >

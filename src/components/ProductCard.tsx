@@ -9,7 +9,6 @@ import {
   Divider,
 } from "@mantine/core";
 import { IconCheck, IconX } from "@tabler/icons-react";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/formats";
 
