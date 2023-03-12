@@ -3,10 +3,11 @@ import { IconShoppingCart, IconUserCircle } from "@tabler/icons-react";
 import { ActionIcon } from "@mantine/core";
 import { useUserContext } from "../context/userContext";
 import { useEffect } from "react";
+import { useCartItemContext } from "../context/cartItemContext";
 
 export const ShopyHeader = () => {
   const { isAuth, user } = useUserContext();
-
+  const { cart_items_count } = useCartItemContext();
   useEffect(() => {}, [isAuth]);
 
   return (
@@ -29,28 +30,60 @@ export const ShopyHeader = () => {
             fit="contain"
           ></Image>
         </Button>
-        <Flex justify={"space-between"} gap="xl" align={"center"} mt={20}>
-          {user ? (
-            <Button component="a" href="/profile" variant="default" size="xs">
-              <Flex align={"center"} gap={3}>
+        <Flex gap="xs" align={"center"} mt={20}>
+          {user && isAuth ? (
+            <Button
+              component="a"
+              href="/profile"
+              variant="subtle"
+              size="xs"
+              style={{
+                backgroundColor: "transparent",
+              }}
+            >
+              <Flex align={"center"} gap={5}>
                 <p
                   style={{
                     font: "inherit",
                     fontWeight: "lighter",
-                    fontSize: 13,
-                    color: "MenuText",
+                    fontSize: 15,
+                    color: "white",
                   }}
                 >
                   Profile
                 </p>
-                <IconUserCircle stroke={1.3} />
+                <IconUserCircle stroke={1.3} color="white" />
               </Flex>
             </Button>
           ) : (
-            <Button component="a" href="/login" variant="default"></Button>
+            <Button
+              component="a"
+              href="/login"
+              variant="subtle"
+              style={{
+                backgroundColor: "transparent",
+              }}
+            >
+              <p
+                style={{
+                  font: "inherit",
+                  fontWeight: "lighter",
+                  fontSize: 13,
+                  color: "white",
+                }}
+              >
+                Login
+              </p>
+            </Button>
           )}
-          <Flex gap={2}>
-            <ActionIcon component="a" href="/cart">
+          <Flex>
+            <ActionIcon
+              component="a"
+              href="/cart"
+              style={{
+                backgroundColor: "transparent",
+              }}
+            >
               <IconShoppingCart
                 height={40}
                 stroke={1.7}
@@ -58,6 +91,29 @@ export const ShopyHeader = () => {
                 size={50}
               />
             </ActionIcon>
+            {cart_items_count > 0 && (
+              <span
+                style={{
+                  backgroundColor: "red",
+                  height: "18px",
+                  width: "18px",
+                  borderRadius: "50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: 13,
+                    fontFamily: "inherit",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {cart_items_count}
+                </p>
+              </span>
+            )}
           </Flex>
         </Flex>
       </Flex>

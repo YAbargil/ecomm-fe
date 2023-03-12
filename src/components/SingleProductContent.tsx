@@ -5,7 +5,9 @@ import { formatPrice } from "../utils/formats";
 export const SingleProductContent = ({ single_product }) => {
   return (
     <Flex direction="column" gap={"xl"} align="baseline" mt={"4%"}>
-      <Title weight={650}>{single_product.title}</Title>
+      <Title weight={650} sx={{ fontFamily: "sans-serif" }}>
+        {single_product.title}
+      </Title>
       <Text color="dimmed">{single_product.brand}</Text>
       <Text mt={11} weight={710} fz={22}>
         Description

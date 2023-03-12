@@ -53,7 +53,7 @@ export const SingleProductImages = ({ images }) => {
             />
           )}
           <Divider size={"xl"} m="xs"></Divider>
-          <Flex align="flex-end" gap={2}>
+          <Flex align="flex-end" gap={5}>
             {restImages?.map((image, index: number) => (
               <>
                 <Image

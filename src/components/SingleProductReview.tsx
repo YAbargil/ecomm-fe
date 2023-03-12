@@ -22,7 +22,7 @@ export const SingleProductReview = ({ product }) => {
 
   {
     return product ? (
-      <Flex justify={"center"} gap="sm">
+      <Flex align={"flex-end"} gap="sm" m={"lg"}>
         <Accordion
           sx={{ width: "100%" }}
           variant="contained"
@@ -33,8 +33,8 @@ export const SingleProductReview = ({ product }) => {
           <Accordion.Item value="review">
             <Accordion.Control>
               <Group position="center" mb={3} align="baseline">
-                <Text fz={21} weight={600}>
-                  Reviews ( {product.reviews?.length} )
+                <Text fz={21} weight={600} sx={{ fontFamily: "sans-serif" }}>
+                  Reviews ({product.reviews?.length})
                 </Text>
                 <Rating
                   value={product.averageRating}
@@ -43,7 +43,7 @@ export const SingleProductReview = ({ product }) => {
                 ></Rating>
 
                 {product.averageRating && (
-                  <Text weight={610} mb={3}>
+                  <Text mb={3} weight={600} sx={{ fontFamily: "sans-serif" }}>
                     {`${product.averageRating}.0`}
                   </Text>
                 )}

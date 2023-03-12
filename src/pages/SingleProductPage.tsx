@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProductsContext } from "../context/productContext";
-import { Title, Flex, Text, Center, Divider } from "@mantine/core";
+import { Title, Flex, Text, Center, Divider, Group } from "@mantine/core";
 import { Loading } from "../components/Loading";
 import { AddProductToCart } from "../components/AddProductToCart";
 import { SingleProductContent } from "../components/SingleProductContent";
@@ -46,10 +46,10 @@ export const SingleProductPage = () => {
   return (
     <>
       <Flex direction={"column"}>
-        <Flex direction="row" align={"flex-start"} justify="space-around">
+        <Flex direction="row" align={"center"} justify="space-around">
           <Flex
             justify={"center"}
-            align={"center"}
+            align={"flex-start"}
             direction={"column"}
             sx={{
               border: "4px solid black",
@@ -60,11 +60,12 @@ export const SingleProductPage = () => {
           >
             <SingleProductContent single_product={single_product} />
             <Divider></Divider>
-            <AddProductToCart single_product={single_product} />
+            <Group position="center">
+              <AddProductToCart single_product={single_product} />
+            </Group>
           </Flex>
           <SingleProductImages images={single_product.images} />
         </Flex>
-        <Divider variant="dashed" mt={"lg"}></Divider>
         <SingleProductReview product={single_product} />
       </Flex>
     </>
