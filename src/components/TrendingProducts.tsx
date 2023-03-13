@@ -56,7 +56,7 @@ export const TrendingProducts = () => {
   useEffect(() => {
     if (products.length > 0) {
       setTrending(products.slice(3, 6));
-      console.log(trending);
+      // console.log(trending);
     }
   }, [products]);
 

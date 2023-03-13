@@ -13,7 +13,7 @@ export const MyReviews = () => {
       const data = result.data.reviews;
       setReviews(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

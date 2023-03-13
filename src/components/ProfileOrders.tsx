@@ -11,7 +11,7 @@ export const ProfileOrders = () => {
       const data = result.data.orders;
       setOrders(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

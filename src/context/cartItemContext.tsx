@@ -39,7 +39,7 @@ export const CartItemProvider = ({ children }) => {
       dispatch({ type: SET_CART_LOADING });
       const result = await getCart();
       const items = result.data.items;
-      console.log(items);
+      // console.log(items);
 
       dispatch({
         type: SET_CART,

@@ -54,7 +54,7 @@ export const UserProvider = ({ children }) => {
         type: SET_USER_ERROR,
         payload: err.response.data.msg,
       });
-      console.log(err);
+      // console.log(err);
     }
   };
 
