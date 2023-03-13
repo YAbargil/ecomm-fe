@@ -10,8 +10,9 @@ export const Filter = () => {
 
   return (
     <>
-      <Flex direction="column" gap={0}>
+      <Flex direction="column" gap={0} align="end" ml={"5%"}>
         <Input
+          mt={"lg"}
           icon={<IconSearch stroke={1.1} size={19} />}
           placeholder="Search"
           onChange={updateFilter}
@@ -21,9 +22,9 @@ export const Filter = () => {
           direction="column"
           ml={10}
           style={{
-            border: "1px solid black",
+            border: "3px solid black",
             marginBlock: "14px",
-            paddingInline: "11px",
+            paddingInline: "30px",
           }}
         >
           <h4>

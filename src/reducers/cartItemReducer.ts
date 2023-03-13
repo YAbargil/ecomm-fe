@@ -20,7 +20,9 @@ const cartItemReducer = (state, action) => {
     case SET_CART:
       return {
         ...state,
+        edit_cart_item: false,
         set_cart_loading: false,
+        cart_items_loading: false,
         cart_items_count: action.payload.length,
         total: action.payload.total,
         cart_items: action.payload.items,
@@ -61,7 +63,7 @@ const cartItemReducer = (state, action) => {
       });
       return {
         ...state,
-        edit_cart_item: false,
+        edit_cart_item: true,
         cart_items: newOrderItems,
       };
 

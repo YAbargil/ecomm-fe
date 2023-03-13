@@ -8,6 +8,7 @@ import { ProfilePage } from "./pages/ProfilePage";
 import { AuthRoutes, ProtectedRoutes } from "./utils/formats";
 import { SignUpPage } from "./pages/SignUpPage";
 import { CartPage } from "./pages/CartPage";
+import { NotFoundTitle } from "./pages/404Page";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route element={<ProtectedRoutes />}>
           <Route path="/cart" element={<CartPage />}></Route>
         </Route>
+        <Route path="*" element={<NotFoundTitle />}></Route>
       </Routes>
     </BrowserRouter>
   );

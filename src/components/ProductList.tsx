@@ -33,27 +33,25 @@ export const ProductList = () => {
   }
 
   return (
-    <Container my="xl">
-      <Grid gutter="lg">
-        {products && products.length > 0 ? (
-          products.map((p) => (
-            <Grid.Col span={6} key={p._id}>
-              <ProductCard product={p} key={p._id} />
-            </Grid.Col>
-          ))
-        ) : (
-          <Group position="center" mt={"50%"}>
-            <Center>
-              <div>
-                <h2>No Products Match Your Filters </h2>
-                <Flex justify={"center"}>
-                  <IconMoodEmpty stroke={2.1} size={40} />
-                </Flex>
-              </div>
-            </Center>
-          </Group>
-        )}
-      </Grid>
-    </Container>
+    <Grid gutter="xl" p={"xl"}>
+      {products && products.length > 0 ? (
+        products.map((p) => (
+          <Grid.Col span={6} key={p._id}>
+            <ProductCard product={p} key={p._id} />
+          </Grid.Col>
+        ))
+      ) : (
+        <Group position="center" mt={"50%"}>
+          <Center>
+            <div>
+              <h2>No Products Match Your Filters </h2>
+              <Flex justify={"center"}>
+                <IconMoodEmpty stroke={2.1} size={40} />
+              </Flex>
+            </div>
+          </Center>
+        </Group>
+      )}
+    </Grid>
   );
 };

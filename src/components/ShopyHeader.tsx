@@ -26,7 +26,7 @@ export const ShopyHeader = () => {
           <Image
             src={logo}
             alt="Logo"
-            width={200}
+            width={250}
             height={55}
             fit="contain"
           ></Image>

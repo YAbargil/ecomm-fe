@@ -20,9 +20,11 @@ export const Sort = () => {
 
   return (
     <>
-      <Flex direction="row" justify={"space-evenly"} align="flex-end">
-        <Group position="apart">
-          <p>{products.length} Product Found</p>
+      <Flex direction="row" justify={"space-evenly"}>
+        <Group>
+          <h4 style={{ fontFamily: "sans-serif" }}>
+            {products.length} - Product Found
+          </h4>
           <form>
             <select name="sort" id="sort" value={sort} onChange={updateSort}>
               <option value="" disabled hidden>

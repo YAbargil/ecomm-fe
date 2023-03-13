@@ -9,10 +9,12 @@ export const ProductsPage = () => {
     <>
       <Title>Products</Title>
       <CurrentPath />
-      <Sort />
+      <Container>
+        <Sort />
+      </Container>
       <Flex direction="row" align={"flex-start"} justify="flex-end">
         <Filter />
-        <Container size={"xl"} p="lg">
+        <Container size={"xl"}>
           <ProductList />
         </Container>
       </Flex>

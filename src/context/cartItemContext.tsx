@@ -2,7 +2,13 @@ import { useContext, useEffect, useReducer } from "react";
 import React, { createContext } from "react";
 import reducer from "../reducers/cartItemReducer";
 
-import { addToCart, deleteOrderItem, getCart, updateOrderItem } from "../api";
+import {
+  addToCart,
+  createOrder,
+  deleteOrderItem,
+  getCart,
+  updateOrderItem,
+} from "../api";
 import { useUserContext } from "./userContext";
 import {
   ADD_TO_CART,
@@ -46,6 +52,16 @@ export const CartItemProvider = ({ children }) => {
     }
   };
 
+  const clickOrderHandler = async () => {
+    try {
+      dispatch({ type: ADD_TO_CART_LOADING });
+      const result = await createOrder();
+      fetchCartItems();
+    } catch (err) {
+      dispatch({ type: ADD_TO_CART_ERROR, payload: err.message });
+    }
+  };
+
   const editQuantityHandler = async (
     orderItemId: string,
     productId: string,
@@ -63,7 +79,6 @@ export const CartItemProvider = ({ children }) => {
 
   useEffect(() => {
     fetchCartItems();
-    console.log(state.cart_items);
   }, [isAuth, state.cart_items_loading]);
 
   const addSingleProductToCart = async (
@@ -97,6 +112,7 @@ export const CartItemProvider = ({ children }) => {
         editQuantityHandler,
         addSingleProductToCart,
         removeOrderItem,
+        clickOrderHandler,
       }}
     >
       {children}

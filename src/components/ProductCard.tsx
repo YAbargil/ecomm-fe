@@ -7,6 +7,7 @@ import {
   Flex,
   Grid,
   Divider,
+  Center,
 } from "@mantine/core";
 import { IconCheck, IconX } from "@tabler/icons-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -36,15 +37,21 @@ export const ProductCard = ({ product }: { product: Product }) => {
         borderRadius: "5px",
       }}
     >
-      <Flex align="start" direction={"column"} gap={7}>
+      <Flex direction={"column"} gap={7}>
         <Card.Section>
-          <Image
-            src={product.images[0]}
-            height={300}
-            width={450}
-            alt="product-img"
-            fit="contain"
-          />
+          <Flex
+            align={"center"}
+            justify="center"
+            sx={{ backgroundColor: "ButtonHighlight" }}
+          >
+            <Image
+              src={product.images[0]}
+              height={300}
+              width={550}
+              alt="product-img"
+              fit="contain"
+            />
+          </Flex>
         </Card.Section>
         <Flex direction={"column"} mt={20}>
           <Text weight={650}>{product.title}</Text>
@@ -60,12 +67,14 @@ export const ProductCard = ({ product }: { product: Product }) => {
             {product.stock > 0 ? (
               <>
                 <IconCheck color="green" stroke={2.2} height={27} />
-                <Text fw={550}>Stock :{product.stock}</Text>
+                <Text fw={650}>Stock :{product.stock}</Text>
               </>
             ) : (
               <>
                 <IconX color="red" stroke={1.7} height={27} />
-                <Text color="red">Out Of Stock</Text>
+                <Text color="red" fw={550}>
+                  Out Of Stock
+                </Text>
               </>
             )}
           </Flex>
