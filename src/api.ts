@@ -33,6 +33,10 @@ export function logIn(data) {
   return client.post("/auth/login", data);
 }
 
+export function addProduct(data) {
+  return client.post("/products/add", data);
+}
+
 export function signUp(data) {
   return client.post("/auth/signup", data);
 }

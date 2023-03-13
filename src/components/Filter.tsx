@@ -10,7 +10,7 @@ export const Filter = () => {
 
   return (
     <>
-      <Flex direction="column" gap={0} justify={"flex-start"}>
+      <Flex direction="column" gap={0}>
         <Input
           icon={<IconSearch stroke={1.1} size={19} />}
           placeholder="Search"

@@ -13,7 +13,6 @@ import {
   Group,
 } from "@mantine/core";
 import { IconMoodEmpty } from "@tabler/icons-react";
-import { useEffect } from "react";
 import { useFilterContext } from "../context/filterContext";
 import { useProductsContext } from "../context/productContext";
 import { ProductCard } from "./ProductCard";

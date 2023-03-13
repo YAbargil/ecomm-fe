@@ -1,4 +1,4 @@
-import { Flex, Input } from "@mantine/core";
+import { Flex, Group, Input } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
 import { useFilterContext } from "../context/filterContext";
 import {
@@ -20,19 +20,21 @@ export const Sort = () => {
 
   return (
     <>
-      <Flex direction="row" justify={"center"} align="flex-end">
-        <p>{products.length} Product Found</p>
-        <form>
-          <select name="sort" id="sort" value={sort} onChange={updateSort}>
-            <option value="" disabled hidden>
-              Sort By
-            </option>
-            <option value={PRICE_ASCENDING}>Price (Lowest)</option>
-            <option value={PRICE_DESCENDING}>Price (Highest)</option>
-            <option value={NAME_ASCENDING}>Name (A-Z)</option>
-            <option value={NAME_DESCENDING}>Name (Z-A)</option>
-          </select>
-        </form>
+      <Flex direction="row" justify={"space-evenly"} align="flex-end">
+        <Group position="apart">
+          <p>{products.length} Product Found</p>
+          <form>
+            <select name="sort" id="sort" value={sort} onChange={updateSort}>
+              <option value="" disabled hidden>
+                Sort By
+              </option>
+              <option value={PRICE_ASCENDING}>Price (Lowest)</option>
+              <option value={PRICE_DESCENDING}>Price (Highest)</option>
+              <option value={NAME_ASCENDING}>Name (A-Z)</option>
+              <option value={NAME_DESCENDING}>Name (Z-A)</option>
+            </select>
+          </form>
+        </Group>
       </Flex>
     </>
   );

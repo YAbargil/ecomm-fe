@@ -1,4 +1,4 @@
-import { Flex, Title } from "@mantine/core";
+import { Box, Container, Flex, Title } from "@mantine/core";
 import { CurrentPath } from "../components/CurrentPath";
 import { Filter } from "../components/Filter";
 import { ProductList } from "../components/ProductList";
@@ -12,7 +12,9 @@ export const ProductsPage = () => {
       <Sort />
       <Flex direction="row" align={"flex-start"} justify="flex-end">
         <Filter />
-        <ProductList />
+        <Container size={"xl"} p="lg">
+          <ProductList />
+        </Container>
       </Flex>
     </>
   );

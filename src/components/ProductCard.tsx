@@ -9,7 +9,7 @@ import {
   Divider,
 } from "@mantine/core";
 import { IconCheck, IconX } from "@tabler/icons-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { formatPrice } from "../utils/formats";
 
 interface Product {
@@ -24,6 +24,7 @@ interface Product {
   _id: string;
 }
 export const ProductCard = ({ product }: { product: Product }) => {
+  const navigate = useNavigate();
   return (
     <Card
       shadow="sm"
@@ -41,7 +42,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
             src={product.images[0]}
             height={300}
             width={450}
-            alt=" product-img"
+            alt="product-img"
             fit="contain"
           />
         </Card.Section>
@@ -69,17 +70,16 @@ export const ProductCard = ({ product }: { product: Product }) => {
             )}
           </Flex>
         </Flex>
-        <Link to={`/products/${product._id}`}>
-          <Button
-            variant="default"
-            fullWidth
-            mt="md"
-            radius="md"
-            sx={{ color: "#000000" }}
-          >
-            View Product
-          </Button>
-        </Link>
+        <Button
+          variant="default"
+          fullWidth
+          mt="md"
+          radius="md"
+          sx={{ color: "#000000" }}
+          onClick={() => navigate(`/products/${product._id}`)}
+        >
+          View Product
+        </Button>
       </Flex>
     </Card>
   );

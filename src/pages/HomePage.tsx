@@ -6,17 +6,39 @@ import {
   Container,
   Center,
   Button,
+  Divider,
+  Group,
 } from "@mantine/core";
-import { Link, redirect } from "react-router-dom";
-// import story from "../../public/story.svg";
+import { Link } from "react-router-dom";
+import story from "../assets/story.svg";
+import { TrendingProducts } from "../components/TrendingProducts";
+import logo from "../assets/logo.svg";
 
 export const Home = () => {
   return (
-    <Flex direction={"column"} p="xl">
+    <Flex direction={"column"} p={"xl"}>
+      <Container p={"xl"}>
+        <Image
+          src={logo}
+          width={"100%"}
+          height={"100%"}
+          style={{ borderBlock: "4px solid black" }}
+        />
+      </Container>
       <Container p={"xl"}>
         <Flex direction="row" align="center" justify={"center"} mr={50}>
-          <Flex direction="column" gap="md" align={"center"}>
-            <Title order={1}> Our Story</Title>
+          <Flex direction="column" gap="xs" align={"center"}>
+            <h1 style={{ fontFamily: "cursive", fontSize: 35 }}></h1>
+
+            <Title
+              order={1}
+              sx={{
+                fontFamily: "cursive",
+                fontSize: 35,
+              }}
+            >
+              Our Story
+            </Title>
             <Container size="xl" px="xl">
               <Center>
                 <Text>
@@ -40,18 +62,31 @@ export const Home = () => {
               </Center>
             </Container>
           </Flex>
-          {/* <Image src={story} alt="story" width={350} height={550}></Image> */}
+          <Image src={story} alt="story" width={350} height={550}></Image>
         </Flex>
-        <Link to="/products">
-          <Button
-            variant="light"
-            color="#F8F9FA"
-            style={{ background: "#000000" }}
-          >
-            SHOP NOW
-          </Button>
-        </Link>
+        <Flex justify={"center"} mr={100} mb="xl">
+          <Link to="/products">
+            <Button
+              variant="default"
+              color="#F8F9FA"
+              style={{ background: "#000000", textAlign: "center" }}
+              size={"xl"}
+            >
+              <Text color={"white"}>SHOP NOW</Text>
+            </Button>
+          </Link>
+        </Flex>
       </Container>
+      <Divider sx={{ border: "1px  solid black" }}></Divider>
+      <TrendingProducts />
+      <Divider sx={{ border: "1px  solid black" }}></Divider>
+      <div style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+        <Group position={"center"} size={"xl"} mt="xl">
+          <p style={{ color: "white", fontFamily: "monospace" }}>
+            MyShopy | E-Commerce{" "}
+          </p>
+        </Group>
+      </div>
     </Flex>
   );
 };

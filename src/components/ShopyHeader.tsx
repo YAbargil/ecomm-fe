@@ -4,6 +4,7 @@ import { ActionIcon } from "@mantine/core";
 import { useUserContext } from "../context/userContext";
 import { useEffect } from "react";
 import { useCartItemContext } from "../context/cartItemContext";
+import logo from "../assets/logo.svg";
 
 export const ShopyHeader = () => {
   const { isAuth, user } = useUserContext();
@@ -23,7 +24,7 @@ export const ShopyHeader = () => {
       <Flex px="lg" align={"center"} justify={"space-between"} gap="md">
         <Button component="a" href="/" variant="default" mt={13} ml={"45%"}>
           <Image
-            src={"https://i.ibb.co/PgYWQ6B/logo.jpg"}
+            src={logo}
             alt="Logo"
             width={200}
             height={55}
@@ -81,7 +82,7 @@ export const ShopyHeader = () => {
               component="a"
               href="/cart"
               style={{
-                backgroundColor: "",
+                backgroundColor: "transparent",
                 width: "33px",
               }}
             >

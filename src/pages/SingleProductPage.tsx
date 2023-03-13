@@ -15,6 +15,7 @@ import { AddProductToCart } from "../components/AddProductToCart";
 import { SingleProductContent } from "../components/SingleProductContent";
 import { SingleProductImages } from "../components/SingleProductImages";
 import { SingleProductReview } from "../components/SingleProductReview";
+import { CurrentPath } from "../components/CurrentPath";
 
 export const SingleProductPage = () => {
   const navgiate = useNavigate();
@@ -53,7 +54,7 @@ export const SingleProductPage = () => {
 
   return (
     <>
-      <Flex direction={"column"}>
+      <Flex direction={"column"} mt={10}>
         <Flex direction="row" align={"center"} justify="space-around">
           <Flex
             justify={"center"}
