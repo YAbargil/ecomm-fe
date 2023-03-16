@@ -15,7 +15,6 @@ import { AddProductToCart } from "../components/AddProductToCart";
 import { SingleProductContent } from "../components/SingleProductContent";
 import { SingleProductImages } from "../components/SingleProductImages";
 import { SingleProductReview } from "../components/SingleProductReview";
-import { CurrentPath } from "../components/CurrentPath";
 
 export const SingleProductPage = () => {
   const navgiate = useNavigate();

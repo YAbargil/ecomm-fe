@@ -10,20 +10,25 @@ import {
   SET_SINGLE_PRODUCT,
   SET_SINGLE_PRODUCT_ERROR,
 } from "../utils/constants/constants";
+import { IProductList, IProduct } from "../utils/types/types";
 
-const initialState = {
+interface IState {
+  products_loading: boolean;
+  single_product_loading: boolean;
+  products_error: boolean;
+  single_product: IProduct;
+  products: IProductList;
+}
+
+const initialState: IState = {
   products_loading: false,
   products_error: false,
   products: [],
+  single_product: {},
   single_product_loading: false,
   single_product_error: false,
-  single_product: {},
 };
 const ProductsContext = createContext(initialState);
-
-interface Props {
-  children: React.ReactNode;
-}
 
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

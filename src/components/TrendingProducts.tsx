@@ -1,18 +1,7 @@
-import {
-  Group,
-  Image,
-  Card,
-  Flex,
-  Badge,
-  Button,
-  createStyles,
-  Center,
-  Divider,
-} from "@mantine/core";
+import { Group, createStyles, Loader } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useProductsContext } from "../context/productContext";
-import { formatPrice } from "../utils/formats";
+import { IProduct } from "../utils/types/types";
 import { Loading } from "./Loading";
 import { TrendingCard } from "./TrendingCard";
 
@@ -55,16 +44,18 @@ export const TrendingProducts = () => {
   const [trending, setTrending] = useState(null);
   useEffect(() => {
     if (products.length > 0) {
+      console.log(products);
       setTrending(products.slice(3, 6));
-      // console.log(trending);
     }
   }, [products]);
 
   if (!trending) {
-    <Group position="center" spacing="xl">
-      <Loading />
-    </Group>;
-  } else if (trending.length > 0) {
+    return (
+      <Group position="center" spacing="xl">
+        <Loading />
+      </Group>
+    );
+  } else {
     return (
       <>
         <div style={{ backgroundColor: "#DEE2E6", padding: "25px" }}>
@@ -74,7 +65,7 @@ export const TrendingProducts = () => {
             </h1>
           </Group>
           <Group position="center" spacing="xl">
-            {trending.map((product) => (
+            {trending.map((product: IProduct) => (
               <TrendingCard product={product} key={product._id} />
             ))}
           </Group>
