@@ -9,6 +9,7 @@ import {
   SET_CART,
   SET_CART_LOADING,
 } from "../utils/constants/constants";
+import { IOrderItem, IProduct } from "../utils/types/types";
 
 const cartItemReducer = (state, action) => {
   switch (action.type) {
@@ -18,12 +19,21 @@ const cartItemReducer = (state, action) => {
         set_cart_loading: true,
       };
     case SET_CART:
+      let count;
+      if (action.payload && action.payload.items.length > 0) {
+        console.log(action.payload.items);
+
+        count = action.payload.items.reduce(
+          (acc: number, cur: IOrderItem) => acc + cur.quantity,
+          0
+        );
+      }
       return {
         ...state,
         edit_cart_item: false,
         set_cart_loading: false,
         cart_items_loading: false,
-        cart_items_count: action.payload.length,
+        cart_items_count: count,
         total: action.payload.total,
         cart_items: action.payload.items,
       };

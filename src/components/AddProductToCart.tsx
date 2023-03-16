@@ -10,12 +10,12 @@ type Props = {
   single_product: IProduct;
 };
 
-export const AddProductToCart = ({ single_product }) => {
+export const AddProductToCart = ({ single_product }: Props) => {
   const { isAuth } = useUserContext();
-  const { addSingleProductToCart, add_product_loading, cart_items_error } =
+  const { addSingleProductToCart, cart_items_loading, cart_items_error } =
     useCartItemContext();
   const [amount, setAmount] = useState(1);
-  useEffect(() => {}, [add_product_loading, isAuth]);
+  useEffect(() => {}, [isAuth]);
 
   const decrease = () => {
     if (amount > 1) {
@@ -46,7 +46,7 @@ export const AddProductToCart = ({ single_product }) => {
               variant="outline"
               rightIcon={<IconShoppingCartPlus />}
               onClick={() => addSingleProductToCart(single_product._id, amount)}
-              loading={add_product_loading}
+              loading={cart_items_loading}
             >
               <Text fw={780} fz={29}>
                 Add To Cart

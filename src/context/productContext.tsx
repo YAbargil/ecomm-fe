@@ -20,7 +20,7 @@ interface IState {
   products: IProductList;
 }
 
-const initialState: IState = {
+const initialState = {
   products_loading: false,
   products_error: false,
   products: [],
@@ -28,7 +28,7 @@ const initialState: IState = {
   single_product_loading: false,
   single_product_error: false,
 };
-const ProductsContext = createContext(initialState);
+const ProductsContext = createContext<IState>(initialState);
 
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
