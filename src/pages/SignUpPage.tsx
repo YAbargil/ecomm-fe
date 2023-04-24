@@ -42,7 +42,7 @@ export const SignUpPage = () => {
   });
 
   return (
-    <Group position="center">
+    <Group position="center" mt={100}>
       <Flex justify={"center"} direction="column" maw={700} align="center">
         <Paper shadow="xl" radius="xs" p="xl" withBorder mt={"14%"}>
           <Image src={"https://i.ibb.co/PgYWQ6B/logo.jpg"} mt="xl" mb="xl" />

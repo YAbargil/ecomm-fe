@@ -8,7 +8,7 @@ import { UserProvider } from "./context/userContext";
 import { AppShell, MantineProvider } from "@mantine/core";
 import { ShopyHeader } from "./components/ShopyHeader";
 import { CartItemProvider } from "./context/cartItemContext";
-
+import Footer from "./components/Footer";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <UserProvider>
@@ -17,12 +17,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <FilterProvider>
             <MantineProvider withGlobalStyles withNormalizeCSS>
               <AppShell
-                py="xl"
-                padding="md"
                 header={<ShopyHeader />}
+                footer={<Footer />}
                 styles={(theme) => ({
                   main: {
-                    backgroundColor: "#EFF3F2",
+                    padding: 0,
                   },
                 })}
               >

@@ -7,7 +7,6 @@ import {
   Center,
   Button,
   Divider,
-  Group,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
 import story from "../assets/story.svg";
@@ -16,8 +15,8 @@ import logo from "../assets/logo.svg";
 
 export const Home = () => {
   return (
-    <Flex direction={"column"} p={"xl"}>
-      <Container p={"xl"}>
+    <Flex direction={"column"} sx={{ backgroundColor: "#ADADA" }}>
+      <Container p={"xl"} mt={150}>
         <Image
           src={logo}
           width={"100%"}
@@ -43,20 +42,17 @@ export const Home = () => {
               <Center>
                 <Text>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
-                    quidem ullam qui corrupti sint ipsa suscipit. Odit
-                    voluptatum dignissimos necessitatibus cumque eius obcaecati
-                    eligendi eum ducimus aliquam rerum esse soluta, totam, sequi
-                    id eaque laudantium error repellat ex, veritatis optio
-                    officiis accusantium molestias deleniti libero! Provident
-                    pariatur, quam molestias amet eius vero consequuntur alias
-                    obcaecati beatae, ipsum nulla odio qui soluta ad ut quaerat
-                    nesciunt. Voluptatem, praesentium corporis quisquam optio
-                    accusantium, aspernatur quam quidem sit asperiores
-                    exercitationem eius nemo facere est quos facilis cumque
-                    atque alias amet. Doloribus obcaecati facere, nesciunt
-                    laborum, incidunt, harum deserunt non vitae quae amet
-                    voluptatem.
+                    Welcome to our online store , We offer a wide range of
+                    high-quality products at competitive prices. Whether you're
+                    looking for the latest electronics, stylish fashion, or
+                    unique gifts, we have something for everyone. Our
+                    user-friendly website makes it easy to browse and purchase
+                    products, and our fast and reliable shipping ensures that
+                    you receive your order quickly. We're committed to providing
+                    excellent customer service and making your shopping
+                    experience as smooth and enjoyable as possible. Start
+                    shopping today and discover why so many customers choose us
+                    for all their online shopping needs.
                   </p>
                 </Text>
               </Center>
@@ -79,14 +75,6 @@ export const Home = () => {
       </Container>
       <Divider sx={{ border: "1px  solid black" }}></Divider>
       <TrendingProducts />
-      <Divider sx={{ border: "1px  solid black" }}></Divider>
-      <div style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
-        <Group position={"center"} size={"xl"} mt="xl">
-          <p style={{ color: "white", fontFamily: "monospace" }}>
-            MyShopy | E-Commerce{" "}
-          </p>
-        </Group>
-      </div>
     </Flex>
   );
 };

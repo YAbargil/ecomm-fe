@@ -27,7 +27,7 @@ export const CartPage = () => {
 
   return (
     <>
-      <Flex justify={"center"} gap="sm">
+      <Flex justify={"center"} gap="sm" mt={100}>
         <Title mb={20} weight={9}>
           Cart
         </Title>

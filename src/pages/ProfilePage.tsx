@@ -29,7 +29,13 @@ export const ProfilePage = () => {
 
   return (
     <>
-      <Tabs variant="pills" orientation="vertical" defaultValue="info" m={"xs"}>
+      <Tabs
+        variant="pills"
+        orientation="vertical"
+        defaultValue="info"
+        m={"xs"}
+        mt={100}
+      >
         <Tabs.List>
           <Flex direction="column">
             <Flex direction={"column"} mr={25} sx={{ height: "100vh" }}>

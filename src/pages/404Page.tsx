@@ -54,7 +54,7 @@ export function NotFoundTitle() {
   const { classes } = useStyles();
 
   return (
-    <Container className={classes.root}>
+    <Container className={classes.root} mt={100}>
       <div className={classes.label}>404</div>
       <Title className={classes.title}>You have found a secret place.</Title>
       <Text

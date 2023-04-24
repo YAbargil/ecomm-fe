@@ -39,7 +39,7 @@ export const LogInPage = () => {
   });
 
   return (
-    <Group position="center" p={"%30"}>
+    <Group position="center" p={"%30"} mt={100}>
       <Flex justify={"center"} direction="column">
         <Paper shadow="xl" radius="xs" p="xl" withBorder mt={"14%"}>
           <Image src={"https://i.ibb.co/PgYWQ6B/logo.jpg"} mt="xl" mb="xl" />

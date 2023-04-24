@@ -44,8 +44,7 @@ export const TrendingProducts = () => {
   const [trending, setTrending] = useState(null);
   useEffect(() => {
     if (products.length > 0) {
-      console.log(products);
-      setTrending(products.slice(3, 6));
+      setTrending(products.slice(0, 3));
     }
   }, [products]);
 
@@ -58,9 +57,9 @@ export const TrendingProducts = () => {
   } else {
     return (
       <>
-        <div style={{ backgroundColor: "#DEE2E6", padding: "25px" }}>
+        <div style={{ padding: "25px" }}>
           <Group position="center" spacing="xl">
-            <h1 style={{ fontFamily: "cursive", fontSize: 35 }}>
+            <h1 style={{ fontFamily: "Poppins", fontSize: 35 }}>
               Featured Products
             </h1>
           </Group>

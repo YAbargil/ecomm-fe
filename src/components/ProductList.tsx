@@ -26,17 +26,17 @@ export const ProductList = () => {
 
   if (isLoading || isLoadingFiltered) {
     return (
-      <Container size="10rem" py={"10rem"} px={"10rem"}>
+      <Container py={"10rem"} px={"10rem"}>
         <Loader color="indigo" variant="dots" />
       </Container>
     );
   }
 
   return (
-    <Grid gutter="xl" p={"xl"}>
+    <Grid gutter="xl">
       {products && products.length > 0 ? (
         products.map((p) => (
-          <Grid.Col span={6} key={p._id}>
+          <Grid.Col span={"auto"} key={p._id}>
             <ProductCard product={p} key={p._id} />
           </Grid.Col>
         ))

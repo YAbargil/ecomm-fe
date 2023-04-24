@@ -53,7 +53,7 @@ export const SingleProductPage = () => {
 
   return (
     <>
-      <Flex direction={"column"} mt={10}>
+      <Flex direction={"column"} mt={100}>
         <Flex direction="row" align={"center"} justify="space-around">
           <Flex
             justify={"center"}
